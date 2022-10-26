@@ -1,0 +1,49 @@
+html
+    head 
+        title= title 
+        link(rel="stylesheet", href="/styles/styles1.css")
+    body 
+        div
+            h1(class='container')= header1
+            p Estamos aprendiendo el motor de plantilla Pug JS 
+            h2 Montores de Plantillas con ExpresJS
+            ul 
+                li pug
+                li Ejs
+                li Hbs
+            img(src='/images/pug2.jpg',title='Motor de Plantillas PUG')
+            table(border='1', cellspacing='0', cellpadding='0')
+                thead
+                    th Identificacion 
+                    th nombre
+                tbody
+                    tr
+                        td 147
+                        td Pepe paez 
+                    tr 
+                        td 854
+                        td Pedro Gil
+            div
+                h1 Las mejores Ciudades del mundo
+                ol(type='a') 
+                    for city in cities
+                        li= city
+            div 
+                table(border='1')
+                    thead 
+                        th Perfil
+                        th Identificacion
+                        th Nombre
+                        th Salario
+                        th Retencion en la Fuente
+                        th Auxilio Transporte 
+                    tbody
+                        for emp in employees 
+                            tr(align='center')
+                                td
+                                    img(src=`/images/${emp.imgae}`)
+                                td= emp.ident 
+                                td= emp.name 
+                                td= new Intl.NumberFormat('es-CO').format(emp.salary) 
+                                td(style='color:red')= new Intl.NumberFormat('es-CO').format(emp.salary > 5000000 ? emp.salary * 10/100:0)
+                                td(style='color:green')= new Intl.NumberFormat('es-CO').format(emp.salary <= 2000000 ? 117172:0)
